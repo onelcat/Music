@@ -59,6 +59,7 @@
 		286C88CA25A441FC002C1D6B /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 286C88AD25A441FC002C1D6B /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		286C88CB25A441FC002C1D6B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286C88AE25A441FC002C1D6B /* RxSwift.framework */; };
 		286C88CC25A441FC002C1D6B /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 286C88AE25A441FC002C1D6B /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		286C88D525A4512C002C1D6B /* list.json in Resources */ = {isa = PBXBuildFile; fileRef = 286C88D425A4512C002C1D6B /* list.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		286C88AC25A441FC002C1D6B /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		286C88AD25A441FC002C1D6B /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		286C88AE25A441FC002C1D6B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		286C88D425A4512C002C1D6B /* list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = list.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				286C889725A43CC7002C1D6B /* SongModel.swift */,
+				286C88D425A4512C002C1D6B /* list.json */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				286C886825A40EDE002C1D6B /* SongTableViewCell.xib in Resources */,
 				286C87FB25A3F73F002C1D6B /* LaunchScreen.storyboard in Resources */,
 				286C87F825A3F73F002C1D6B /* Assets.xcassets in Resources */,
+				286C88D525A4512C002C1D6B /* list.json in Resources */,
 				286C87F625A3F73C002C1D6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

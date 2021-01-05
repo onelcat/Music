@@ -508,17 +508,20 @@ class AssetPlayer {
     var defaultAllowsExternalPlayback: Bool { return true }
     
     var defaultRegisteredCommands: [NowPlayableCommand] {
-        return [.togglePausePlay,
+        return [
+//                .togglePausePlay,
                 .play,
                 .pause,
                 .nextTrack,
                 .previousTrack,
-                .skipBackward,
-                .skipForward,
-                .changePlaybackPosition,
-                .changePlaybackRate,
-                .enableLanguageOption,
-                .disableLanguageOption
+                .seekForward,
+                .seekBackward
+//                .skipBackward,
+//                .skipForward,
+//                .changePlaybackPosition,
+//                .changePlaybackRate,
+//                .enableLanguageOption,
+//                .disableLanguageOption
         ]
     }
     

@@ -17,23 +17,29 @@ struct AssetItemModel: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        
+        assetURL <- (map["assetURL"],URLTransform())
+        title <- map["title"]
+        artist <- map["artist"]
+        artworkURL <- (map["artwork"],URLTransform())
+        albumArtist <- map["albumArtist"]
+        albumTitle <- map["albumTitle"]
     }
     
     
     var metadata: NowPlayableStaticMetadata {
-        return NowPlayableStaticMetadata(assetURL: assetURL!, mediaType: .audio, isLiveStream: isLiveStream, title: title!, artist: artist, artwork: nil, artworkURL: artwork, albumArtist: albumArtist, albumTitle: albumTitle)
+        
+        guard let url = assetURL,let title = title else {
+            fatalError()
+        }
+        
+        return NowPlayableStaticMetadata(assetURL: url, mediaType: .audio, isLiveStream: isLiveStream, title: title, artist: artist, artwork: nil, artworkURL: artworkURL, albumArtist: albumArtist, albumTitle: albumTitle)
     }
     
     var assetURL: URL?
-    
-    var isLiveStream: Bool = true
-    
+    var isLiveStream: Bool = false
     var title: String?
-    
     var artist: String?
-    var artwork: URL?
-    
+    var artworkURL: URL?
     var albumArtist: String?
     var albumTitle: String?
     

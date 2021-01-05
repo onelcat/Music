@@ -18,7 +18,7 @@ final class BeeTabBarController: UITabBarController {
     func removeTopLine() {
         let image: UIImage
         if #available(iOS 11.0, *) {
-            image = UIColor(named: "mainColor")!.image
+            image = UIColor(named: "#D0104C")!.image
         } else {
             // Fallback on earlier versions
             image = UIColor.red.image

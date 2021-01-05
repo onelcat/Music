@@ -11,6 +11,11 @@ class SongTableViewCell: BeeTableViewCell {
 
     static let cellReuseIdentifier = "SongTableViewCell"
     
+    @IBOutlet weak var artworImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
