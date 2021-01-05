@@ -9,7 +9,9 @@ import UIKit
 
 class PlayerViewController: BeeViewController {
 
-    // 获取配置 模式
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

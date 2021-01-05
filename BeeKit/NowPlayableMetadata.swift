@@ -18,6 +18,7 @@ struct NowPlayableStaticMetadata {
     let title: String                   // MPMediaItemPropertyTitle
     let artist: String?                 // MPMediaItemPropertyArtist
     let artwork: MPMediaItemArtwork?    // MPMediaItemPropertyArtwork
+    let artworkURL: URL?
     
     let albumArtist: String?            // MPMediaItemPropertyAlbumArtist
     let albumTitle: String?             // MPMediaItemPropertyAlbumTitle

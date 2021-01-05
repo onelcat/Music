@@ -8,6 +8,7 @@ Abstract:
 
 import AVFoundation
 import MediaPlayer
+import Kingfisher
 
 class AssetPlayer {
     
@@ -76,7 +77,7 @@ class AssetPlayer {
 
         self.staticMetadatas = playableAssets.map { $0.metadata }
         self.playerItems = playableAssets.map {
-            AVPlayerItem(url: $0.assetURL)
+            AVPlayerItem(url: $0.assetURL!)
         }
         
         // Create a player, and configure it for external playback, if the
@@ -703,7 +704,29 @@ class AssetPlayer {
         nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = metadata.isLiveStream
         nowPlayingInfo[MPMediaItemPropertyTitle] = metadata.title
         nowPlayingInfo[MPMediaItemPropertyArtist] = metadata.artist
-        nowPlayingInfo[MPMediaItemPropertyArtwork] = metadata.artwork
+        
+        if let url = metadata.artworkURL {
+            KingfisherManager.shared.retrieveImage(with: url) { (result) in
+                switch result {
+                case let .success(image):
+                    
+                    let artwork = MPMediaItemArtwork(boundsSize: CGSize(width: 51, height: 51)) { (size) -> UIImage in
+                        return image.image
+                    }
+                    
+                    nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+                    nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+                    
+                    break
+                case let .failure(error):
+                    assert(false, error.localizedDescription)
+                }
+            }
+        }
+        
+        if let artwork = metadata.artwork {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+        }
         
         nowPlayingInfo[MPMediaItemPropertyAlbumArtist] = metadata.albumArtist
         

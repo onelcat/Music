@@ -8,23 +8,33 @@
 
 import Foundation
 import MediaPlayer
+import ObjectMapper
 
-struct AssetItemModel {
+struct AssetItemModel: Mappable {
     
-    var metadata: NowPlayableStaticMetadata {
-        return NowPlayableStaticMetadata(assetURL: assetURL, mediaType: .audio, isLiveStream: isLiveStream, title: title, artist: artist, artwork: nil, albumArtist: albumArtist, albumTitle: albumTitle)
+    init?(map: Map) {
+        
     }
     
-    let assetURL: URL
+    mutating func mapping(map: Map) {
+        
+    }
     
-    let isLiveStream: Bool = true
     
-    let title: String
+    var metadata: NowPlayableStaticMetadata {
+        return NowPlayableStaticMetadata(assetURL: assetURL!, mediaType: .audio, isLiveStream: isLiveStream, title: title!, artist: artist, artwork: nil, artworkURL: artwork, albumArtist: albumArtist, albumTitle: albumTitle)
+    }
     
-    let artist: String?
-    let artwork: URL?
+    var assetURL: URL?
     
-    let albumArtist: String?
-    let albumTitle: String?
+    var isLiveStream: Bool = true
+    
+    var title: String?
+    
+    var artist: String?
+    var artwork: URL?
+    
+    var albumArtist: String?
+    var albumTitle: String?
     
 }
