@@ -1,0 +1,6 @@
+github "Moya/Moya" ~> 14.0
+github "SnapKit/SnapKit" ~> 5.0.0
+github "RxSwiftCommunity/RxDataSources" ~> 4.0
+github "onevcat/Kingfisher" ~> 5.0
+github "tristanhimmelman/ObjectMapper" ~> 4.0
+github "AliSoftware/Reusable"

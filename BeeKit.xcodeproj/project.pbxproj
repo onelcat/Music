@@ -8,13 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		286C87EF25A3F73C002C1D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C87EE25A3F73C002C1D6B /* AppDelegate.swift */; };
-		286C87F125A3F73C002C1D6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C87F025A3F73C002C1D6B /* SceneDelegate.swift */; };
-		286C87F325A3F73C002C1D6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C87F225A3F73C002C1D6B /* ViewController.swift */; };
 		286C87F625A3F73C002C1D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286C87F425A3F73C002C1D6B /* Main.storyboard */; };
 		286C87F825A3F73F002C1D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286C87F725A3F73F002C1D6B /* Assets.xcassets */; };
 		286C87FB25A3F73F002C1D6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286C87F925A3F73F002C1D6B /* LaunchScreen.storyboard */; };
 		286C880625A3F73F002C1D6B /* BeeKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C880525A3F73F002C1D6B /* BeeKitTests.swift */; };
 		286C881125A3F73F002C1D6B /* BeeKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C881025A3F73F002C1D6B /* BeeKitUITests.swift */; };
+		286C882825A3F9C5002C1D6B /* BeeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C882725A3F9C5002C1D6B /* BeeNavigationController.swift */; };
+		286C882D25A3F9E8002C1D6B /* BeeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C882C25A3F9E8002C1D6B /* BeeTabBarController.swift */; };
+		286C883225A3FE7D002C1D6B /* BeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C883125A3FE7D002C1D6B /* BeeViewController.swift */; };
+		286C883725A3FE98002C1D6B /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C883625A3FE98002C1D6B /* SongListViewController.swift */; };
+		286C883C25A3FEDC002C1D6B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C883B25A3FEDC002C1D6B /* PlayerViewController.swift */; };
+		286C884725A406DB002C1D6B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C884625A406DB002C1D6B /* UIImage+Extension.swift */; };
+		286C884C25A40D54002C1D6B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C884B25A40D54002C1D6B /* UIColor+Extension.swift */; };
+		286C885125A40E99002C1D6B /* BeeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C885025A40E99002C1D6B /* BeeTableView.swift */; };
+		286C885625A40EBE002C1D6B /* BeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C885525A40EBE002C1D6B /* BeeTableViewCell.swift */; };
+		286C886725A40EDE002C1D6B /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C886525A40EDE002C1D6B /* SongTableViewCell.swift */; };
+		286C886825A40EDE002C1D6B /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286C886625A40EDE002C1D6B /* SongTableViewCell.xib */; };
+		286C888A25A43C51002C1D6B /* NowPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888725A43C50002C1D6B /* NowPlayableError.swift */; };
+		286C888B25A43C51002C1D6B /* NowPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888825A43C51002C1D6B /* NowPlayableCommand.swift */; };
+		286C888C25A43C51002C1D6B /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */; };
+		286C889125A43C5C002C1D6B /* HSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C889025A43C5C002C1D6B /* HSPlayer.swift */; };
+		286C889825A43CC7002C1D6B /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C889725A43CC7002C1D6B /* SongModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +51,6 @@
 /* Begin PBXFileReference section */
 		286C87EB25A3F73C002C1D6B /* BeeKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286C87EE25A3F73C002C1D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		286C87F025A3F73C002C1D6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		286C87F225A3F73C002C1D6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		286C87F525A3F73C002C1D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		286C87F725A3F73F002C1D6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		286C87FA25A3F73F002C1D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +61,24 @@
 		286C880C25A3F73F002C1D6B /* BeeKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		286C881025A3F73F002C1D6B /* BeeKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeKitUITests.swift; sourceTree = "<group>"; };
 		286C881225A3F73F002C1D6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		286C882725A3F9C5002C1D6B /* BeeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeNavigationController.swift; sourceTree = "<group>"; };
+		286C882C25A3F9E8002C1D6B /* BeeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeTabBarController.swift; sourceTree = "<group>"; };
+		286C883125A3FE7D002C1D6B /* BeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeViewController.swift; sourceTree = "<group>"; };
+		286C883625A3FE98002C1D6B /* SongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
+		286C883B25A3FEDC002C1D6B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		286C884625A406DB002C1D6B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		286C884B25A40D54002C1D6B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		286C885025A40E99002C1D6B /* BeeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeTableView.swift; sourceTree = "<group>"; };
+		286C885525A40EBE002C1D6B /* BeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeTableViewCell.swift; sourceTree = "<group>"; };
+		286C886525A40EDE002C1D6B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		286C886625A40EDE002C1D6B /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
+		286C887F25A438E2002C1D6B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		286C888325A438E2002C1D6B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		286C888725A43C50002C1D6B /* NowPlayableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableError.swift; sourceTree = "<group>"; };
+		286C888825A43C51002C1D6B /* NowPlayableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableCommand.swift; sourceTree = "<group>"; };
+		286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
+		286C889025A43C5C002C1D6B /* HSPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSPlayer.swift; sourceTree = "<group>"; };
+		286C889725A43CC7002C1D6B /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +129,14 @@
 		286C87ED25A3F73C002C1D6B /* BeeKit */ = {
 			isa = PBXGroup;
 			children = (
+				286C889625A43CB3002C1D6B /* Model */,
+				286C889525A43C62002C1D6B /* Player */,
+				286C886D25A40EEC002C1D6B /* View */,
+				286C887525A40F7E002C1D6B /* ViewController */,
+				286C887125A40F27002C1D6B /* Extension */,
+				286C887025A40F10002C1D6B /* Resource */,
+				286C886F25A40EFC002C1D6B /* Bee */,
 				286C87EE25A3F73C002C1D6B /* AppDelegate.swift */,
-				286C87F025A3F73C002C1D6B /* SceneDelegate.swift */,
-				286C87F225A3F73C002C1D6B /* ViewController.swift */,
-				286C87F425A3F73C002C1D6B /* Main.storyboard */,
-				286C87F725A3F73F002C1D6B /* Assets.xcassets */,
-				286C87F925A3F73F002C1D6B /* LaunchScreen.storyboard */,
-				286C87FC25A3F73F002C1D6B /* Info.plist */,
 			);
 			path = BeeKit;
 			sourceTree = "<group>";
@@ -126,6 +157,75 @@
 				286C881225A3F73F002C1D6B /* Info.plist */,
 			);
 			path = BeeKitUITests;
+			sourceTree = "<group>";
+		};
+		286C886D25A40EEC002C1D6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				286C886525A40EDE002C1D6B /* SongTableViewCell.swift */,
+				286C886625A40EDE002C1D6B /* SongTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		286C886F25A40EFC002C1D6B /* Bee */ = {
+			isa = PBXGroup;
+			children = (
+				286C885525A40EBE002C1D6B /* BeeTableViewCell.swift */,
+				286C882725A3F9C5002C1D6B /* BeeNavigationController.swift */,
+				286C882C25A3F9E8002C1D6B /* BeeTabBarController.swift */,
+				286C883125A3FE7D002C1D6B /* BeeViewController.swift */,
+				286C885025A40E99002C1D6B /* BeeTableView.swift */,
+			);
+			name = Bee;
+			sourceTree = "<group>";
+		};
+		286C887025A40F10002C1D6B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				286C87F425A3F73C002C1D6B /* Main.storyboard */,
+				286C87F725A3F73F002C1D6B /* Assets.xcassets */,
+				286C87F925A3F73F002C1D6B /* LaunchScreen.storyboard */,
+				286C87FC25A3F73F002C1D6B /* Info.plist */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		286C887125A40F27002C1D6B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				286C884625A406DB002C1D6B /* UIImage+Extension.swift */,
+				286C884B25A40D54002C1D6B /* UIColor+Extension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		286C887525A40F7E002C1D6B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				286C883625A3FE98002C1D6B /* SongListViewController.swift */,
+				286C883B25A3FEDC002C1D6B /* PlayerViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		286C889525A43C62002C1D6B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				286C889025A43C5C002C1D6B /* HSPlayer.swift */,
+				286C888825A43C51002C1D6B /* NowPlayableCommand.swift */,
+				286C888725A43C50002C1D6B /* NowPlayableError.swift */,
+				286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		286C889625A43CB3002C1D6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				286C889725A43CC7002C1D6B /* SongModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +292,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = onelcat.github.io;
 				TargetAttributes = {
 					286C87EA25A3F73C002C1D6B = {
 						CreatedOnToolsVersion = 12.3;
@@ -213,6 +314,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 286C87E225A3F73C002C1D6B;
 			productRefGroup = 286C87EC25A3F73C002C1D6B /* Products */;
@@ -231,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286C886825A40EDE002C1D6B /* SongTableViewCell.xib in Resources */,
 				286C87FB25A3F73F002C1D6B /* LaunchScreen.storyboard in Resources */,
 				286C87F825A3F73F002C1D6B /* Assets.xcassets in Resources */,
 				286C87F625A3F73C002C1D6B /* Main.storyboard in Resources */,
@@ -258,9 +361,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286C87F325A3F73C002C1D6B /* ViewController.swift in Sources */,
+				286C882D25A3F9E8002C1D6B /* BeeTabBarController.swift in Sources */,
+				286C888B25A43C51002C1D6B /* NowPlayableCommand.swift in Sources */,
+				286C889825A43CC7002C1D6B /* SongModel.swift in Sources */,
+				286C888A25A43C51002C1D6B /* NowPlayableError.swift in Sources */,
+				286C884725A406DB002C1D6B /* UIImage+Extension.swift in Sources */,
+				286C882825A3F9C5002C1D6B /* BeeNavigationController.swift in Sources */,
+				286C886725A40EDE002C1D6B /* SongTableViewCell.swift in Sources */,
+				286C883C25A3FEDC002C1D6B /* PlayerViewController.swift in Sources */,
+				286C888C25A43C51002C1D6B /* NowPlayableMetadata.swift in Sources */,
+				286C885625A40EBE002C1D6B /* BeeTableViewCell.swift in Sources */,
+				286C883225A3FE7D002C1D6B /* BeeViewController.swift in Sources */,
 				286C87EF25A3F73C002C1D6B /* AppDelegate.swift in Sources */,
-				286C87F125A3F73C002C1D6B /* SceneDelegate.swift in Sources */,
+				286C883725A3FE98002C1D6B /* SongListViewController.swift in Sources */,
+				286C885125A40E99002C1D6B /* BeeTableView.swift in Sources */,
+				286C889125A43C5C002C1D6B /* HSPlayer.swift in Sources */,
+				286C884C25A40D54002C1D6B /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +416,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				286C87F525A3F73C002C1D6B /* Base */,
+				286C887F25A438E2002C1D6B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -308,6 +425,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				286C87FA25A3F73F002C1D6B /* Base */,
+				286C888325A438E2002C1D6B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -319,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -366,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -421,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -439,6 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SRW54YFJJ3;
 				INFOPLIST_FILE = BeeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SRW54YFJJ3;
 				INFOPLIST_FILE = BeeKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +685,7 @@
 				286C881425A3F73F002C1D6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		286C881525A3F73F002C1D6B /* Build configuration list for PBXNativeTarget "BeeKit" */ = {
 			isa = XCConfigurationList;
@@ -572,7 +694,7 @@
 				286C881725A3F73F002C1D6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		286C881825A3F73F002C1D6B /* Build configuration list for PBXNativeTarget "BeeKitTests" */ = {
 			isa = XCConfigurationList;
@@ -581,7 +703,7 @@
 				286C881A25A3F73F002C1D6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		286C881B25A3F73F002C1D6B /* Build configuration list for PBXNativeTarget "BeeKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,7 +712,7 @@
 				286C881D25A3F73F002C1D6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
