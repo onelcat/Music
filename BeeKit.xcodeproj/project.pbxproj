@@ -27,7 +27,7 @@
 		286C888A25A43C51002C1D6B /* NowPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888725A43C50002C1D6B /* NowPlayableError.swift */; };
 		286C888B25A43C51002C1D6B /* NowPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888825A43C51002C1D6B /* NowPlayableCommand.swift */; };
 		286C888C25A43C51002C1D6B /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */; };
-		286C889125A43C5C002C1D6B /* HSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C889025A43C5C002C1D6B /* HSPlayer.swift */; };
+		286C889125A43C5C002C1D6B /* AssetPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C889025A43C5C002C1D6B /* AssetPlayer.swift */; };
 		286C889825A43CC7002C1D6B /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C889725A43CC7002C1D6B /* SongModel.swift */; };
 		286C88AF25A441FC002C1D6B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286C88A025A441FB002C1D6B /* RxCocoa.framework */; };
 		286C88B025A441FC002C1D6B /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 286C88A025A441FB002C1D6B /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -136,7 +136,7 @@
 		286C888725A43C50002C1D6B /* NowPlayableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableError.swift; sourceTree = "<group>"; };
 		286C888825A43C51002C1D6B /* NowPlayableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableCommand.swift; sourceTree = "<group>"; };
 		286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
-		286C889025A43C5C002C1D6B /* HSPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSPlayer.swift; sourceTree = "<group>"; };
+		286C889025A43C5C002C1D6B /* AssetPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPlayer.swift; sourceTree = "<group>"; };
 		286C889725A43CC7002C1D6B /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
 		286C88A025A441FB002C1D6B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		286C88A125A441FB002C1D6B /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		286C889525A43C62002C1D6B /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				286C889025A43C5C002C1D6B /* HSPlayer.swift */,
+				286C889025A43C5C002C1D6B /* AssetPlayer.swift */,
 				286C888825A43C51002C1D6B /* NowPlayableCommand.swift */,
 				286C888725A43C50002C1D6B /* NowPlayableError.swift */,
 				286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */,
@@ -491,7 +491,7 @@
 				286C87EF25A3F73C002C1D6B /* AppDelegate.swift in Sources */,
 				286C883725A3FE98002C1D6B /* SongListViewController.swift in Sources */,
 				286C885125A40E99002C1D6B /* BeeTableView.swift in Sources */,
-				286C889125A43C5C002C1D6B /* HSPlayer.swift in Sources */,
+				286C889125A43C5C002C1D6B /* AssetPlayer.swift in Sources */,
 				286C884C25A40D54002C1D6B /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

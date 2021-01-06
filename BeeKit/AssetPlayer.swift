@@ -10,6 +10,7 @@ import AVFoundation
 import MediaPlayer
 import Kingfisher
 
+// 本地资源播放
 class AssetPlayer {
     
     // Possible values of the `playerState` property.
@@ -77,7 +78,7 @@ class AssetPlayer {
 
         self.staticMetadatas = playableAssets.map { $0.metadata }
         self.playerItems = playableAssets.map {
-            AVPlayerItem(url: $0.assetURL!)
+            AVPlayerItem(asset: AVURLAsset(url: $0.assetURL!), automaticallyLoadedAssetKeys: ["availableMediaCharacteristicsWithMediaSelectionOptions"])
         }
         
         // Create a player, and configure it for external playback, if the
@@ -287,8 +288,14 @@ class AssetPlayer {
     private func nextTrack() {
         
         if case .stopped = playerState { return }
-        
-        player.advanceToNextItem()
+        let playerItem = playerItems[1]
+        if player.canInsert(playerItem, after: nil) {
+            player.insert(playerItem, after: nil)
+            debugPrint("可以播放")
+        } else {
+            debugPrint("不可以播放")
+        }
+//        player.advanceToNextItem()
     }
     
     private func previousTrack() {
