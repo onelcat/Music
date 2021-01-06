@@ -10,6 +10,86 @@ import Foundation
 import MediaPlayer
 import ObjectMapper
 
+
+
+let songList = """
+[
+    {
+        "assetURL": "http://192.168.0.173:8888/i.mp3",
+        "title": "Gogobebe",
+        "artist":"Mamamoo",
+        "artwork":"https://ilkpop.com/images/59158046.jpg",
+        "albumTitle":"White Wind",
+        "albumArtist":"Mamamoo"
+    },
+    {
+        "assetURL": "http://192.168.0.173:8888/ii.mp3",
+        "title": "Starry Night",
+        "artist":"Mamamoo",
+        "artwork":"https://ilkpop.com/images/58420453.jpg",
+        "albumTitle":"Yellow Flower",
+        "albumArtist":"Mamamoo"
+    },
+    {
+                
+        "assetURL": "http://192.168.0.173:8888/iii.mp3",
+        "title": "Be Calm",
+        "artist":"Hwasa",
+        "artwork":"https://ilkpop.com/images/59158554.jpg",
+        "albumTitle":"Yellow Flower",
+        "albumArtist":"Mamamoo"
+    },
+    {
+        "assetURL": "http://192.168.0.173:8888/iv.mp3",
+        "title": "Maria",
+        "artist":"Hwasa",
+        "artwork":"https://ilkpop.com/images/59159946.jpg",
+        "albumTitle":"Maria",
+        "albumArtist":"Hwasa"
+    }
+]
+
+"""
+
+//
+//let songList = """
+//[
+//    {
+//        "assetURL": "http://x-kpop.xyz/loadfiles/59158046/bWFtYW1vbyDqs6Dqs6DrsqDrsqAgZ29nb2JlYmU,",
+//        "title": "Gogobebe",
+//        "artist":"Mamamoo",
+//        "artwork":"https://ilkpop.com/images/59158046.jpg",
+//        "albumTitle":"White Wind",
+//        "albumArtist":"Mamamoo"
+//    },
+//    {
+//        "assetURL": "http://x-kpop.xyz/loadfiles/58420453/bWFtYW1vbyDrs4TsnbQg67mb64KY64qUIOuwpCBzdGFycnkgbmlnaHQ,",
+//        "title": "Starry Night",
+//        "artist":"Mamamoo",
+//        "artwork":"https://ilkpop.com/images/58420453.jpg",
+//        "albumTitle":"Yellow Flower",
+//        "albumArtist":"Mamamoo"
+//    },
+//    {
+//        "assetURL": "http://x-kpop.xyz/loadfiles/59158554/bWFtYW1vbyBiZSBjYWxt",
+//        "title": "Be Calm",
+//        "artist":"Hwasa",
+//        "artwork":"https://ilkpop.com/images/59158554.jpg",
+//        "albumTitle":"Yellow Flower",
+//        "albumArtist":"Mamamoo"
+//    },
+//    {
+//        "assetURL": "http://x-kpop.xyz/loadfiles/59159946/aHdhc2EgbWFtYW1vbyDrp4jrpqzslYQgbWFyaWE,",
+//        "title": "Maria",
+//        "artist":"Hwasa",
+//        "artwork":"https://ilkpop.com/images/59159946.jpg",
+//        "albumTitle":"Maria",
+//        "albumArtist":"Hwasa"
+//    }
+//]
+//
+//"""
+
 struct AssetItemModel: Mappable {
     
     init?(map: Map) {

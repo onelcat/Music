@@ -84,8 +84,10 @@ class Player{
         self.staticMetadatas = playableAssets.map { $0.metadata }
         
         self.playerItems = playableAssets.map {
-
-            AVPlayerItem(url: $0.assetURL!)
+//            print("资源", $0.assetURL)
+            return AVPlayerItem(url: $0.assetURL!)
+            
+//            AVPlayerItem(asset: AVURLAsset(url: $0.assetURL!), automaticallyLoadedAssetKeys: [Player.mediaSelectionKey])
         }
                 
         // Construct lists of commands to be registered or disabled.
@@ -104,12 +106,13 @@ class Player{
         guard let item = self.playerItems.first else {
             return
         }
-        try self.play(item: item)
+        
+        self.play(item: item)
     }
     
-    func play(item: AVPlayerItem) throws {
+    func play(item: AVPlayerItem) {
         
-        
+//        replaceCurrentItemWithPlayerItem
         self.player.replaceCurrentItem(with: item)
         
         // Observe changes to the current item and playback rate.
@@ -121,42 +124,67 @@ class Player{
                 self.handlePlayerItemChange()
             }
             
-            rateObserver = player.observe(\.rate, options: .initial) {
-                [unowned self] _, _ in
-                self.handlePlaybackChange()
-            }
+//            rateObserver = player.observe(\.rate, options: .initial) {
+//                [unowned self] _, _ in
+//                self.handlePlaybackChange()
+//            }
             
             statusObserver = player.observe(\.currentItem?.status, options: .initial) {
                 [unowned self] _, _ in
-                self.handlePlaybackChange()
+                guard let status = self.player.currentItem?.status else {
+                    assert(false)
+                    return
+                }
+                switch status {
+                case .unknown:
+                    let error = "\(self.player.error)  \(self.player.currentItem?.error)"
+//                    assert(false,error)
+                    break
+                case .readyToPlay:
+
+                    self.handlePlaybackChange()
+                case .failed:
+                    let error = "\(self.player.error)  \(self.player.currentItem?.error)"
+                    assert(false,error)
+                @unknown default:
+                    break
+                
+                }
+                
             }
             
-            loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
-                debugPrint("播放的缓存进度")
-                
-                guard let playerItem = self.player.currentItem else {
-                    return
-                }
-                
-                let loadedTimeRanges = playerItem.loadedTimeRanges
-                
-                guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
-                    return
-                }
-                
-                let startSeconds = CMTimeGetSeconds(timeRange.start)
-                let durationSeconds = CMTimeGetSeconds(timeRange.duration)
-                let result = startSeconds + durationSeconds
-                NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
-                
-            })
+//            loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
+//
+//                guard let playerItem = self.player.currentItem else {
+//                    return
+//                }
+//
+//                let loadedTimeRanges = playerItem.loadedTimeRanges
+//
+//                guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
+//                    return
+//                }
+//
+//                let startSeconds = CMTimeGetSeconds(timeRange.start)
+//
+//                let durationSeconds = CMTimeGetSeconds(timeRange.duration)
+//
+//                let result = startSeconds + durationSeconds
+//
+//                NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
+//
+//            })
             
             
             self.player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { (time) in
-                debugPrint("播放进度")
+                let current = CMTimeGetSeconds(time);
+                let total = CMTimeGetSeconds(self.player.currentItem!.duration);
+                debugPrint("播放时长", current,CMTimeGetSeconds(self.player.currentItem!.currentTime()),total)
+                // 进度条一直无法显示
                 self.handlePlaybackChange()
             }
-            
+
+                
             // Start the player.
             self.play()
             
@@ -209,8 +237,16 @@ class Player{
         
         // Find the current item.
         
-        guard let currentItem = player.currentItem else { optOut(); return }
-        guard currentItem.status == .readyToPlay else { return }
+        guard let currentItem = player.currentItem else {
+            assert(false)
+            optOut();
+            return
+        }
+        
+        guard currentItem.status == .readyToPlay else {
+//            assert(false)
+            return
+        }
         
         // Create language option groups for the asset's media selection,
         // and determine the current language option in each group, if any.
@@ -247,6 +283,8 @@ class Player{
                 }
             }
         }
+        
+        
         
         // Construct the dynamic metadata, including language options for audio,
         // subtitle and closed caption tracks that can be enabled for the
@@ -334,7 +372,7 @@ class Player{
         }
         
         let item = self.playerItems[index]
-        try! self.play(item: item)
+        self.play(item: item)
         
     }
     
@@ -352,7 +390,7 @@ class Player{
         
         let item = self.playerItems[index]
         
-        try! self.play(item: item)
+        self.play(item: item)
         
     }
     
@@ -744,6 +782,7 @@ class Player{
         } else {
             // Fallback on earlier versions
         }
+        
         nowPlayingInfo[MPNowPlayingInfoPropertyMediaType] = metadata.mediaType.rawValue
         nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = metadata.isLiveStream
         nowPlayingInfo[MPMediaItemPropertyTitle] = metadata.title

@@ -124,7 +124,6 @@ class AssetPlayer {
                 }
                 
                 loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
-                    debugPrint("播放的缓存进度")
                     
                     guard let playerItem = self.player.currentItem else {
                         return
@@ -139,7 +138,7 @@ class AssetPlayer {
                     let startSeconds = CMTimeGetSeconds(timeRange.start)
                     let durationSeconds = CMTimeGetSeconds(timeRange.duration)
                     let result = startSeconds + durationSeconds
-                    NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
+                    NSLog("播放的缓存进度 开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
                     
 //                    NSLog("音视频的加载进度是:%%%f", durationSeconds / self.total * 100);
                     //获取缓冲进度
