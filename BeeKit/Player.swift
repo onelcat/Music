@@ -1,18 +1,17 @@
-/*
-See LICENSE folder for this sample’s licensing information.
+//
+//  Player.swift
+//  BeeKit
+//
+//  Created by flqy on 2021/1/6.
+//  Copyright © 2021 onelcat.github.io. All rights reserved.
+//
 
-Abstract:
-`AssetPlayer` uses an AVQueuePlayer for playback of `ConfigAsset` items,
- with a `NowPlayable` delegate for handling platform-specific behavior.
-*/
 
 import AVFoundation
 import MediaPlayer
 import Kingfisher
 
-// 本地资源播放 改造子苹果官方代码
-
-class AssetPlayer {
+class Player{
     
     // Possible values of the `playerState` property.
     
@@ -30,7 +29,7 @@ class AssetPlayer {
     // player, or may play content in any way that is wishes, provided that it uses
     // the NowPlayable behavior correctly.
     
-    let player: AVQueuePlayer
+    let player: AVPlayer
     
     // A playlist of items to play.
     
@@ -71,6 +70,11 @@ class AssetPlayer {
     
     init(assets: [AssetItemModel]) throws {
         
+        // Create a player, and configure it for external playback, if the
+        // configuration requires.
+        
+        self.player = AVPlayer()
+        player.allowsExternalPlayback = true
         
         // Get the subset of assets that the configuration actually wants to play,
         // and use it to construct the playlist.
@@ -78,89 +82,75 @@ class AssetPlayer {
         let playableAssets = assets
 
         self.staticMetadatas = playableAssets.map { $0.metadata }
+        
         self.playerItems = playableAssets.map {
-            AVPlayerItem(asset: AVURLAsset(url: $0.assetURL!), automaticallyLoadedAssetKeys: [AssetPlayer.mediaSelectionKey])
+
+            AVPlayerItem(url: $0.assetURL!)
         }
-        
-        // Create a player, and configure it for external playback, if the
-        // configuration requires.
-        
-        self.player = AVQueuePlayer(items: playerItems)
-        player.allowsExternalPlayback = defaultAllowsExternalPlayback
-        
+                
         // Construct lists of commands to be registered or disabled.
         
         
         // Configure the app for Now Playing Info and Remote Command Center behaviors.
         
-         try handleNowPlayableConfiguration(commands: defaultRegisteredCommands, disabledCommands: defaultDisabledCommands)
+        
+        try handleNowPlayableConfiguration(commands: defaultRegisteredCommands, disabledCommands: defaultDisabledCommands)
         
 
+        try handleNowPlayableSessionStart()
+
+        
         // Start playing, if there is something to play.
+        guard let item = self.playerItems.first else {
+            return
+        }
+        try self.play(item: item)
+    }
+    
+    func play(item: AVPlayerItem) throws {
         
-        if !playerItems.isEmpty {
+        
+        self.player.replaceCurrentItem(with: item)
+        
+        // Observe changes to the current item and playback rate.
+        
+        if player.currentItem != nil {
             
-            // Start a playback session.
-            
-            try handleNowPlayableSessionStart()
-            
-            // Observe changes to the current item and playback rate.
-            
-            if player.currentItem != nil {
-                
-                itemObserver = player.observe(\.currentItem, options: .initial) {
-                    [unowned self] _, _ in
-                    self.handlePlayerItemChange()
-                }
-                
-                rateObserver = player.observe(\.rate, options: .initial) {
-                    [unowned self] _, _ in
-                    self.handlePlaybackChange()
-                }
-                
-                statusObserver = player.observe(\.currentItem?.status, options: .initial) {
-                    [unowned self] _, _ in
-                    self.handlePlaybackChange()
-                }
-                
-                loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
-                    debugPrint("播放的缓存进度")
-                    
-                    guard let playerItem = self.player.currentItem else {
-                        return
-                    }
-                    
-                    let loadedTimeRanges = playerItem.loadedTimeRanges
-                    
-                    guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
-                        return
-                    }
-                    
-                    let startSeconds = CMTimeGetSeconds(timeRange.start)
-                    let durationSeconds = CMTimeGetSeconds(timeRange.duration)
-                    let result = startSeconds + durationSeconds
-                    NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
-                    
-//                    NSLog("音视频的加载进度是:%%%f", durationSeconds / self.total * 100);
-                    //获取缓冲进度
-//                      NSArray *loadedTimeRanges = [playerItem loadedTimeRanges];
-//                      // 获取缓冲区域
-//                      CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];
-//                      //开始的时间
-//                      NSTimeInterval startSeconds = CMTimeGetSeconds(timeRange.start);
-//                      //表示已经缓冲的时间
-//                      NSTimeInterval durationSeconds = CMTimeGetSeconds(timeRange.duration);
-//                      // 计算缓冲总时间
-//                      NSTimeInterval result = startSeconds + durationSeconds;
-//                      NSLog(@"开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result);
-//                      NSLog(@"视频的加载进度是:%%%f", durationSeconds / self.total * 100);
-
-                    
-                })
-                
-                
-                
+            itemObserver = player.observe(\.currentItem, options: .initial) {
+                [unowned self] _, _ in
+                self.handlePlayerItemChange()
             }
+            
+            rateObserver = player.observe(\.rate, options: .initial) {
+                [unowned self] _, _ in
+                self.handlePlaybackChange()
+            }
+            
+            statusObserver = player.observe(\.currentItem?.status, options: .initial) {
+                [unowned self] _, _ in
+                self.handlePlaybackChange()
+            }
+            
+            loadedTimeRangeObserver = player.observe(\.currentItem?.loadedTimeRanges, options: .initial, changeHandler: { [unowned self] (player, value) in
+                debugPrint("播放的缓存进度")
+                
+                guard let playerItem = self.player.currentItem else {
+                    return
+                }
+                
+                let loadedTimeRanges = playerItem.loadedTimeRanges
+                
+                guard let timeRange = loadedTimeRanges.first?.timeRangeValue else {
+                    return
+                }
+                
+                let startSeconds = CMTimeGetSeconds(timeRange.start)
+                let durationSeconds = CMTimeGetSeconds(timeRange.duration)
+                let result = startSeconds + durationSeconds
+                NSLog("开始:%f,持续:%f,总时间:%f", startSeconds, durationSeconds, result)
+                
+            })
+            
             
             self.player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { (time) in
                 debugPrint("播放进度")
@@ -168,9 +158,12 @@ class AssetPlayer {
             }
             
             // Start the player.
+            self.play()
             
-            play()
+        } else {
+            assert(false)
         }
+        
     }
     
     // Stop the playback session.
@@ -183,9 +176,8 @@ class AssetPlayer {
         loadedTimeRangeObserver = nil
         
         player.pause()
-        player.removeAllItems()
+//        player.removeAllItems()
         playerState = .stopped
-        
         handleNowPlayableSessionEnd()
     }
     
@@ -233,7 +225,7 @@ class AssetPlayer {
         var languageOptionGroups: [MPNowPlayingInfoLanguageOptionGroup] = []
         var currentLanguageOptions: [MPNowPlayingInfoLanguageOption] = []
 
-        if asset.statusOfValue(forKey: AssetPlayer.mediaSelectionKey, error: nil) == .loaded {
+        if asset.statusOfValue(forKey: Player.mediaSelectionKey, error: nil) == .loaded {
             
             // Examine each media selection group.
             
@@ -333,38 +325,35 @@ class AssetPlayer {
     private func nextTrack() {
         
         if case .stopped = playerState { return }
-        let playerItem = playerItems[1]
-        if player.canInsert(playerItem, after: nil) {
-            player.insert(playerItem, after: nil)
-            debugPrint("可以播放")
-        } else {
-            debugPrint("不可以播放")
+        guard let currentItem = player.currentItem else { optOut(); return }
+        guard let currentIndex = playerItems.firstIndex (where: { $0 == currentItem }) else { return }
+        
+        var index = currentIndex + 1
+        if index >= self.playerItems.count {
+            index = 0
         }
-//        player.advanceToNextItem()
+        
+        let item = self.playerItems[index]
+        try! self.play(item: item)
+        
     }
     
     private func previousTrack() {
         
         if case .stopped = playerState { return }
+        guard let currentItem = player.currentItem else { optOut(); return }
+        guard let currentIndex = playerItems.firstIndex (where: { $0 == currentItem }) else { return }
         
-        let currentTime = player.currentTime().seconds
-        let currentItems = player.items()
-        let previousIndex = playerItems.count - currentItems.count - 1
+        var index = currentIndex - 1
         
-        guard currentTime < 3, previousIndex > 0, previousIndex < playerItems.count else { seek(to: .zero); return }
-        
-        player.removeAllItems()
-        
-        for playerItem in playerItems[(previousIndex - 1)...] {
-            
-            if player.canInsert(playerItem, after: nil) {
-                player.insert(playerItem, after: nil)
-            }
+        if index < 0 {
+            index = self.playerItems.count - 1
         }
         
-        if case .playing = playerState {
-            player.play()
-        }
+        let item = self.playerItems[index]
+        
+        try! self.play(item: item)
+        
     }
     
     private func seek(to time: CMTime) {
@@ -561,9 +550,9 @@ class AssetPlayer {
     
     var defaultRegisteredCommands: [NowPlayableCommand] {
         return [
-//                .togglePausePlay,
-                .play,
-                .pause,
+                .togglePausePlay,
+//                .play,
+//                .pause,
                 .nextTrack,
                 .previousTrack,
                 .seekForward,
@@ -809,10 +798,4 @@ class AssetPlayer {
         nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
     }
     
-}
-
-// Reasons for invoking the audio session interruption handler (except macOS).
-
-enum NowPlayableInterruption {
-    case began, ended(Bool), failed(Error)
 }

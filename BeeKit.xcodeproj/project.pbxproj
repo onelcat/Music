@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2821169025A58BB000ABC161 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821168F25A58BB000ABC161 /* Player.swift */; };
 		286C87EF25A3F73C002C1D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C87EE25A3F73C002C1D6B /* AppDelegate.swift */; };
 		286C87F625A3F73C002C1D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286C87F425A3F73C002C1D6B /* Main.storyboard */; };
 		286C87F825A3F73F002C1D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286C87F725A3F73F002C1D6B /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2821168F25A58BB000ABC161 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		286C87EB25A3F73C002C1D6B /* BeeKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286C87EE25A3F73C002C1D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286C87F525A3F73C002C1D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				286C888825A43C51002C1D6B /* NowPlayableCommand.swift */,
 				286C888725A43C50002C1D6B /* NowPlayableError.swift */,
 				286C888925A43C51002C1D6B /* NowPlayableMetadata.swift */,
+				2821168F25A58BB000ABC161 /* Player.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				286C883725A3FE98002C1D6B /* SongListViewController.swift in Sources */,
 				286C885125A40E99002C1D6B /* BeeTableView.swift in Sources */,
 				286C889125A43C5C002C1D6B /* AssetPlayer.swift in Sources */,
+				2821169025A58BB000ABC161 /* Player.swift in Sources */,
 				286C884C25A40D54002C1D6B /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
