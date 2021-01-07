@@ -85,9 +85,9 @@ class Player{
         
         self.playerItems = playableAssets.map {
 //            print("资源", $0.assetURL)
-            return AVPlayerItem(url: $0.assetURL!)
+//            return AVPlayerItem(url: $0.assetURL!)
             
-//            AVPlayerItem(asset: AVURLAsset(url: $0.assetURL!), automaticallyLoadedAssetKeys: [Player.mediaSelectionKey])
+            AVPlayerItem(asset: AVURLAsset(url: $0.assetURL!), automaticallyLoadedAssetKeys: [Player.mediaSelectionKey])
         }
                 
         // Construct lists of commands to be registered or disabled.
@@ -115,6 +115,7 @@ class Player{
 //        replaceCurrentItemWithPlayerItem
         self.player.replaceCurrentItem(with: item)
         
+        debugPrint("播放时长",item.asset.duration)
         // Observe changes to the current item and playback rate.
         
         if player.currentItem != nil {
